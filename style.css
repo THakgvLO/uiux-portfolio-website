@@ -1,0 +1,600 @@
+:root {
+    --bg-dark: #040d25;
+    --accent-colour: #c2e76a;
+    --text-main: #ffffff;
+    --card-bg: #000000;
+    --nav-size: 1.1rem;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* NAVBAR: Uniform Typography */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(18, 20, 23, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.navbar .logo {
+    font-size: var(--nav-size);
+    font-weight: 500;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.logo {
+    font-size: var(--nav-size);
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: var(--nav-size);
+    letter-spacing: 1px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.navbar .logo:hover {
+    opacity: 1;
+    color: var(--accent-colour);
+}
+
+.nav-links a:hover { opacity: 1; color: #c2e76a; }
+
+.full-section {
+    width: 100%;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 10% 2rem 10%; /* Specific padding to maintain flow */
+}
+
+.section-header {
+    font-size: 1.6rem;
+    color: var(--accent-colour);
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.case-section p {
+    text-align: center;
+}
+
+/* ASYMMETRICAL HERO LAYOUT */
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-content h1 {
+    font-size: 2.5rem;
+    text-align: left;
+    padding-left: 60px;
+    color: #c2e76a;
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 1.3rem;
+    max-width: 550px;
+    margin: 0 auto !important;
+    opacity: 0.9;
+}
+
+.text-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--accent-colour);
+    margin: 2.5rem auto;
+}
+
+.text-right {
+    text-align: right;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto !important;
+    opacity: 0.7;
+    border-right: 2px solid var(--accent-colour);
+    padding-right: 20px;
+}
+
+/* HERO VISUALS (Left Side) */
+.intro-visuals {
+    position: relative;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER FOR THE TANGLE */
+.tangle-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shape {
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+/* THE MAIN GRADIENT BLOB */
+.blob-main {
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(45deg, var(--accent-colour), #c4d9db);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    opacity: 2.4;
+    filter: blur(80px);
+    animation: morph 12s infinite alternate ease-in-out;
+}
+
+.glow-core {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+    filter: blur(10px);
+}
+
+/* ANIMATIONS */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes morph {
+    0% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; transform: scale(1); }
+    100% { border-radius: 70% 30% 30% 70% / 60% 30% 70% 40%; transform: scale(1.1); }
+}
+
+/* SQUARE GRID */
+.square-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.square-item {
+    position: relative;
+    background: repeating-linear-gradient(
+        90deg,
+        #032d31 0px,
+        #ceee9a98 0px,
+        #032d31 25px,
+        #06cbdd 20px
+    );
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* LOGO VISIBILITY: Glassmorphism backing */
+.tile-image {
+    width: 60%; 
+    z-index: 2;
+    background: rgba(4, 13, 37, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tile-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* TEXT VISIBILITY: High contrast backing on hover */
+.tile-info {
+    position: absolute;
+    bottom: -60px; /* Hidden deeper to clear the glass logo */
+    width: 90%;
+    background: rgba(1, 15, 29, 0.836); /* Solid dark for maximum legibility */
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    opacity: 0;
+    z-index: 3;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /*border: 1px solid var(--accent-colour);*/
+}
+
+.tile-info h3 {
+    font-size: 1.1rem;
+    color: #eaecf0;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.tile-info p {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    opacity: 0.9;
+}
+
+/* THE HOVER ACTION */
+.square-item:hover .tile-image {
+    transform: translateY(-45px);
+}
+
+.square-item:hover .tile-info {
+    bottom: 20px; 
+    opacity: 1;
+}
+
+.square-overlay {
+    display: none; 
+}
+
+/* MOBILE ONLY: Change grid to a horizontal flex-swipe */
+@media (max-width: 600px) {
+    .square-grid {
+        display: flex; /* Switch from Grid to Flex for swiping */
+        overflow-x: auto; /* Enables horizontal swipe */
+        scroll-snap-type: x mandatory; /* Makes cards 'snap' into place */
+        gap: 15px;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch; /* Smooth swiping on iOS */
+    }
+
+    .square-item {
+        flex: 0 0 85%; /* Cards take up 85% of screen width */
+        scroll-snap-align: center;
+        aspect-ratio: 1 / 1.2; /* Slightly taller for mobile */
+    }
+    
+    /* Hide scrollbar for a cleaner 'app' look */
+    .square-grid::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.square-item:hover .square-overlay { opacity: 1; }
+.square-item:hover img { transform: scale(1.1); }
+
+/* SOCIAL LINKS */
+.social-links {
+    display: flex; gap: 2.5rem; align-items: center;
+}
+
+.social-icon img {
+    width: 50px; filter: invert(1); opacity: 1.5; transition: 0.3s;
+}
+
+.social-icon:hover img { opacity: 1; transform: translateY(-5px); }
+
+.email-cta {
+    color: var(--accent-colour);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .hero-layout { grid-template-columns: 1fr; }
+    .intro-visuals { display: none; }
+    .text-right { text-align: center; border-right: none; padding-right: 0; }
+    .square-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* CASE STUDY SPECIFIC STYLES */
+.case-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 5% 60px 5%;
+    background: #147A15;
+}
+
+.project-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.project-hero h1 {
+    font-size: 4rem;
+    color: #E68959;
+}
+
+.case-section {
+    margin-bottom: 5rem;
+}
+
+.figma-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1d2126;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Ensure the iframe is responsive */
+.figma-container iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Professional widescreen preview */
+}
+
+/* THE STAIRS LOGIC */
+.stairs-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.stair-block {
+    padding: 2rem;
+    border-left: 2px groove var(--accent-colour); /* The "Riser" of the step */
+    border-bottom: 1px solid rgba(45, 106, 44, 0.3); /* Subtle "Tread" line */
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+/* WALKING DOWN: Staggering the margins */
+.step-1 { 
+    margin-left: 0; 
+    width: 70%;
+}
+
+.step-2 { 
+    margin-left: 10%; 
+    width: 70%;
+}
+
+.step-3 { 
+    margin-left: 20%; 
+    width: 70%;
+}
+
+.step-4 { 
+    margin-left: 30%; 
+    width: 70%;
+    border-bottom: 4px solid var(--accent-colour); /* Final step landing */
+}
+
+/* Hover effect to highlight the current "step" in her process */
+.stair-block:hover {
+    background: rgba(45, 106, 44, 0.05);
+    border-left-width: 8px;
+    padding-left: 2.5rem;
+}
+
+.stair-block p {
+    text-align: left; /* Keeps text readable on the step */
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* MOBILE FIX: Stairs flatten out on small screens for readability */
+@media (max-width: 768px) {
+    .stair-block {
+        margin-left: 0 !important;
+        width: 100% !important;
+        border-bottom: 1px solid var(--accent-colour);
+    }
+}
+
+/* THE CANVAS BACKGROUND */
+.figma-canvas {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 570px;
+    background-color: #27282b;
+    background-image: radial-gradient(#333 1px, transparent 1px);
+    background-size: 30px 30px; /* The Dot Grid */
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* THE STICKY NOTES */
+.sticky-note {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease, z-index 0.3s;
+    cursor: grab;
+}
+
+.sticky-note:active { cursor: grabbing; }
+
+/* Colors - Inspired by Figma's default Post-it palette */
+.yellow { background-color: #ffc700; color: #333; }
+.green  { background-color: #0fa958; color: #fff; }
+.blue   { background-color: #5551ff; color: #fff; }
+.purple { background-color: #9747ff; color: #fff; }
+
+.note-tag {
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.sticky-note p {
+    font-family: 'Permanent Marker', cursive, sans-serif; /* Optional: adds a handwritten feel */
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+/* Positioning & Rotation (Matrix Thinking) */
+.note-1 { top: 10%; left: 10%; transform: rotate(-4deg); }
+.note-2 { top: 50%; left: 15%; transform: rotate(3deg); }
+.note-3 { top: 15%; right: 15%; transform: rotate(-2deg); }
+.note-4 { bottom: 10%; right: 10%; transform: rotate(5deg); }
+
+/* Interaction: Bring to front on hover */
+.sticky-note:hover {
+    transform: scale(1.1) rotate(0deg);
+    z-index: 100;
+}
+
+.large-overlay-image {
+    position: absolute;
+    top: 10%;  /* Adjust based on where you want her to start */
+    left: 0;
+    width: 45%; /* Spans the left side */
+    z-index: 10; /* Sits above shapes but below the navbar */
+    pointer-events: none; /* Allows user to click things behind her */
+}
+
+.large-overlay-image img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5)); /* Adds depth */
+}
+
+/* MOBILE RESPONSIVENESS: Hide the image for mobile users */
+@media (max-width: 900px) {
+    .large-overlay-image {
+        display: none;
+    }
+}
+
+/* GRID FOR MULTIPLE EMBEDS */
+.screen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+
+.embed-card {
+    background: #1e1e1e; /* Figma Canvas Gray */
+    border-radius: 16px;
+    padding: 10px;
+    border: 1px solid rgba(194, 231, 106, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.embed-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-colour);
+}
+
+.embed-card iframe {
+    width: 100%;
+    aspect-ratio: 9 / 16; /* Standard Mobile Portrait Ratio */
+    border: none;
+    border-radius: 8px;
+    background: #000;
+}
+
+.embed-caption {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--accent-colour);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* FULL PROTOTYPE CONTAINER */
+.figma-container iframe {
+    width: 100%;
+    height: 80vh; /* Takes up most of the screen for the full flow */
+    border: none;
+}
+
+.view-switcher {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    background-color: var(--bg-dark);
+    color: var(--accent-colour);
+    border: 1px solid var(--accent-colour);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.action-btn:hover {
+    background-color: var(--accent-colour);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px rgba(194, 231, 106, 0.4);
+}
+
+/* Ensure the figma container handles the requested display */
+.figma-container {
+    width: 100%;
+}
