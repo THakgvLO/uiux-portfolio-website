@@ -42,3 +42,11 @@ function toggleProjectView() {
         btn.innerText = "Switch to Full Prototype";
     }
 }
+
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
