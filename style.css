@@ -462,25 +462,33 @@ body {
 /* MOBILE ONLY: Change grid to a horizontal flex-swipe */
 @media (max-width: 600px) {
     .square-grid {
-        display: flex; /* Switch from Grid to Flex for swiping */
-        overflow-x: scroll; /* Enables horizontal swipe */
-        scroll-snap-type: x mandatory; /* Makes cards 'snap' into place */
-        gap: 20px;
-        padding: 20px 20px 40px 20px;
-        -webkit-overflow-scrolling: touch; /* Smooth swiping on iOS */
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
-        margin: 0 -20px;
-        width: calc(100% + 40px);
     }
 
     .square-item {
-        flex: 0 0 85vw; /* 85% of viewport width */
+        flex: 0 0 calc(100vw - 40px);
         scroll-snap-align: start;
         scroll-snap-stop: always;
-        aspect-ratio: 1 / 1.2; /* Slightly taller for mobile */
+        aspect-ratio: 1 / 1.2;
+        margin: 0 20px;
     }
     
-    /* Scrollbar styling for mobile */
+    .square-item:first-child {
+        margin-left: 20px;
+    }
+
+    .square-item:last-child {
+        margin-right: 20px;
+    }
+
     .square-grid::-webkit-scrollbar {
         height: 6px;
         background: rgba(0,0,0,0.1);
@@ -493,34 +501,48 @@ body {
     }
 
     .stair-block p {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 
     .full-section {
-        padding: 4rem 5% 2rem 5%;
+        padding: 3rem 5% 1.5rem 5%;
     }
 
     .intro-content h1 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
     }
 
     .text-center {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 
     .section-header {
-        font-size: 1rem;
-        letter-spacing: 2px;
+        font-size: 0.9rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 1.5rem;
     }
 
     .staggered-text {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        line-height: 1.3;
     }
 
     .intro-block {
         max-width: none;
         min-width: auto;
+        padding: 1rem 0.8rem;
+        gap: 0.8rem;
+    }
+
+    .word--large { 
+        font-size: 1.8rem; 
+    }
+    .word--medium { 
+        font-size: 1.5rem; 
+    }
+    .word--small { 
+        font-size: 1.2rem; 
     }
 }
 

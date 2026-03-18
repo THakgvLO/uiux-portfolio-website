@@ -44,10 +44,12 @@ function toggleProjectView() {
 }
 
 // Reset project grid scroll to start on load
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const squareGrid = document.querySelector('.square-grid');
     if (squareGrid) {
-        squareGrid.scrollLeft = 0;
+        setTimeout(() => {
+            squareGrid.scrollLeft = 0;
+        }, 100);
     }
 });
 
