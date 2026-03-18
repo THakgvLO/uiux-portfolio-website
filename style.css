@@ -474,7 +474,7 @@ body {
     }
 
     .square-item {
-        flex: 0 0 calc(100vw - 80px); /* Fill width minus padding */
+        flex: 0 0 85vw; /* 85% of viewport width */
         scroll-snap-align: start;
         scroll-snap-stop: always;
         aspect-ratio: 1 / 1.2; /* Slightly taller for mobile */
@@ -493,7 +493,7 @@ body {
     }
 
     .stair-block p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .full-section {
@@ -501,17 +501,26 @@ body {
     }
 
     .intro-content h1 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-bottom: 1rem;
     }
 
     .text-center {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .section-header {
-        font-size: 1.1rem;
-        letter-spacing: 3px;
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .staggered-text {
+        font-size: 0.9rem;
+    }
+
+    .intro-block {
+        max-width: none;
+        min-width: auto;
     }
 }
 
