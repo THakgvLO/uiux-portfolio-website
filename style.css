@@ -463,23 +463,27 @@ body {
 @media (max-width: 600px) {
     .square-grid {
         display: flex;
-        overflow-x: scroll;
+        overflow-x: auto; /* Changed from scroll to auto for better compatibility */
         scroll-snap-type: x mandatory;
-        gap: 0;
-        padding: 0;
-        margin: 0;
-        width: 100%;
+        
+        /* FIX 1: Ensure it starts at the beginning */
+        justify-content: flex-start; 
+        
+        /* FIX 2: Prevent the container from shrinking weirdly */
+        width: 100vw;
+        margin-left: calc(-5% - 1px); /* Counteracts parent padding if necessary */
+        padding: 0 20px; 
+        
+        gap: 15px; /* Give them some breathing room */
         -webkit-overflow-scrolling: touch;
-        /* scroll-behavior: smooth; */ /* Removed to prevent interference with forced scroll */
     }
 
     .square-item {
-        flex: 0 0 50vw;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-        aspect-ratio: 1 / 1.2;
-        margin: 0;
+        /* FIX 3: Ensure the items don't shrink */
+        flex: 0 0 70vw; /* Adjust 70vw to show a "peek" of the next card */
+        scroll-snap-align: center;
     }
+}
 
     .square-grid::-webkit-scrollbar {
         height: 6px;
