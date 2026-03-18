@@ -47,25 +47,28 @@ function toggleProjectView() {
 function resetGridScroll() {
     const squareGrid = document.querySelector('.square-grid');
     if (squareGrid && window.innerWidth <= 600) {
-        // Force scroll to position 0
-        squareGrid.scrollLeft = 0;
+        // Force scroll to position 0 without smooth behavior
+        squareGrid.scrollTo({ left: 0, behavior: 'auto' });
         // Also try with requestAnimationFrame for better timing
         requestAnimationFrame(() => {
-            squareGrid.scrollLeft = 0;
+            squareGrid.scrollTo({ left: 0, behavior: 'auto' });
         });
     }
 }
 
 window.addEventListener('load', () => {
     resetGridScroll();
-    setTimeout(resetGridScroll, 200);
+    setTimeout(resetGridScroll, 100);
+    setTimeout(resetGridScroll, 300);
     setTimeout(resetGridScroll, 500);
+    setTimeout(resetGridScroll, 1000);
 });
 
 window.addEventListener('resize', resetGridScroll);
 
-// Hamburger menu toggle
 window.addEventListener('DOMContentLoaded', () => {
+    resetGridScroll();
+    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const navItems = document.querySelectorAll('.nav-links li a');
