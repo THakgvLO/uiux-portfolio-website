@@ -468,12 +468,12 @@ body {
         gap: 15px;
         padding-bottom: 20px;
         -webkit-overflow-scrolling: touch; /* Smooth swiping on iOS */
-        justify-content: center;
+        scroll-padding-left: 20px;
     }
 
     .square-item {
-        flex: 0 0 85%; /* Cards take up 85% of screen width */
-        scroll-snap-align: center;
+        flex: 0 0 80%; /* Cards take up 80% of screen width */
+        scroll-snap-align: start;
         aspect-ratio: 1 / 1.2; /* Slightly taller for mobile */
     }
     
@@ -482,21 +482,25 @@ body {
         display: none;
     }
 
+    .stair-block p {
+        font-size: 1rem;
+    }
+
     .full-section {
         padding: 4rem 5% 2rem 5%;
     }
 
     .intro-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         margin-bottom: 1rem;
     }
 
     .text-center {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .section-header {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         letter-spacing: 3px;
     }
 }
