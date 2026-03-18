@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tsholi Podile | UI/UX Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -24,31 +27,80 @@
         </div>
     </nav>
 
-    <div class="large-overlay-image">
-        <img src="assets/images/Fortnite-Girl.png" alt="Tsholi Podile">
-    </div>
-
     <section id="hero" class="full-section">
         <div class="hero-layout">
-            <div class="intro-visuals">
-                <div class="tangle-container">
-                    <div class="shape blob-main"></div>
-                    <div class="shape glow-core"></div>
+            <div class="intro-row">
+                <div class="intro-block intro-block--title">
+                    <h1 class="typewriter">
+                        <span class="word word--large">Creative</span>
+                        <span class="word word--medium">UI/UX</span>
+                        <span class="word word--small">Designer</span>
+                    </h1>
                 </div>
-        </div>
 
-            <div class="intro-content">
-                <h1>Creative UI/UX Designer</h1>
-                
-                <p class="text-center">
-                    Crafting intentional digital experiences that balance user needs with business goals.
-                </p>
-                
-                <div class="text-divider"></div>
+                <div class="intro-block intro-block--lead">
+                    <p class="staggered-text">
+                        <span style="--i:1">Crafting</span>
+                        <span class="highlight" style="--i:2">intentional</span>
+                        <span style="--i:3">digital</span>
+                        <span class="highlight" style="--i:4">experiences</span>
+                        <span style="--i:5">that</span>
+                        <span class="highlight" style="--i:6">balance</span>
+                        <span style="--i:7">user</span>
+                        <span style="--i:8">needs</span>
+                        <span style="--i:9">with</span>
+                        <span style="--i:10">business</span>
+                        <span style="--i:11">goals.</span>
+                    </p>
+                </div>
 
-                <p class="text-right">
-                    I bridge the gap between complex user problems and elegant digital solutions. By combining deep psychological insights with high-fidelity prototyping, I create products that are as functional as they are visually compelling. Currently focused on building seamless mobile experiences for the modern consumer.
-                </p>
+                <div class="intro-block intro-block--detail">
+                    <p class="staggered-text delayed">
+                        <span style="--i:1">I</span>
+                        <span class="highlight" style="--i:2">bridge</span>
+                        <span style="--i:3">the</span>
+                        <span style="--i:4">gap</span>
+                        <span style="--i:5">between</span>
+                        <span class="highlight" style="--i:6">complex</span>
+                        <span style="--i:7">user</span>
+                        <span style="--i:8">problems</span>
+                        <span style="--i:9">and</span>
+                        <span class="highlight" style="--i:10">elegant</span>
+                        <span style="--i:11">digital</span>
+                        <span class="highlight" style="--i:12">solutions.</span>
+                        <span style="--i:13">By</span>
+                        <span class="highlight" style="--i:14">combining</span>
+                        <span style="--i:15">deep</span>
+                        <span class="highlight" style="--i:16">psychological</span>
+                        <span class="highlight" style="--i:17">insights</span>
+                        <span style="--i:18">with</span>
+                        <span style="--i:19">high-fidelity</span>
+                        <span class="highlight" style="--i:20">prototyping,</span>
+                        <span style="--i:21">I</span>
+                        <span style="--i:22">create</span>
+                        <span style="--i:23">products</span>
+                        <span style="--i:24">that</span>
+                        <span style="--i:25">are</span>
+                        <span style="--i:26">as</span>
+                        <span class="highlight" style="--i:27">functional</span>
+                        <span style="--i:28">as</span>
+                        <span style="--i:29">they</span>
+                        <span style="--i:30">are</span>
+                        <span style="--i:31">visually</span>
+                        <span class="highlight" style="--i:32">compelling.</span>
+                        <span style="--i:33">Currently</span>
+                        <span class="highlight" style="--i:34">focused</span>
+                        <span style="--i:35">on</span>
+                        <span class="highlight" style="--i:36">building</span>
+                        <span class="highlight" style="--i:37">seamless</span>
+                        <span class="highlight" style="--i:38">mobile</span>
+                        <span style="--i:39">experiences</span>
+                        <span style="--i:40">for</span>
+                        <span style="--i:41">the</span>
+                        <span class="highlight" style="--i:42">modern</span>
+                        <span class="highlight" style="--i:43">consumer.</span>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -78,24 +130,26 @@
         <h2 class="section-header">Design Thinking</h2>
         
         <div class="figma-canvas">
-            <div class="sticky-note yellow note-1">
-                <span class="note-tag">Empathize</span>
-                <p>User interviews revealed a deep frustration with calorie counting apps. They want speed, not data entry.</p>
-            </div>
+            <div class="note-carousel" aria-label="Design thinking notes carousel">
+                <div class="sticky-note yellow">
+                    <span class="note-tag">Empathize</span>
+                    <p>User interviews revealed a deep frustration with calorie counting apps. They want speed, not data entry.</p>
+                </div>
 
-            <div class="sticky-note green note-2">
-                <span class="note-tag">Define</span>
-                <p>Problem: Busy pros need a way to find recipes based on what they *already* have in the fridge.</p>
-            </div>
+                <div class="sticky-note green">
+                    <span class="note-tag">Define</span>
+                    <p>Problem: Busy pros need a way to find recipes based on what they *already* have in the fridge.</p>
+                </div>
 
-            <div class="sticky-note blue note-3">
-                <span class="note-tag">Ideate</span>
-                <p>What if the app scanned receipts? Or used AI image recognition for pantry items?</p>
-            </div>
+                <div class="sticky-note blue">
+                    <span class="note-tag">Ideate</span>
+                    <p>What if the app scanned receipts? Or used AI image recognition for pantry items?</p>
+                </div>
 
-            <div class="sticky-note purple note-4">
-                <span class="note-tag">Prototype</span>
-                <p>Building high-fidelity flows in Figma to test the "One-Tap Recipe" hypothesis.</p>
+                <div class="sticky-note purple">
+                    <span class="note-tag">Prototype</span>
+                    <p>Building high-fidelity flows in Figma to test the "One-Tap Recipe" hypothesis.</p>
+                </div>
             </div>
         </div>
     </section>
