@@ -815,8 +815,10 @@ body {
     }
 
     .note-carousel {
-        padding: 10px;
-        gap: 16px;
+        display: flex;
+        justify-content: flex-start !important; /* Forces it to start at Card 1 */
+        overflow-x: auto;
+        padding-left: 20px; /* Gives first card some space from the edge */
     }
 
     .sticky-note {
