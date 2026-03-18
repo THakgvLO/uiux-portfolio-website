@@ -43,15 +43,19 @@ function toggleProjectView() {
     }
 }
 
-// Reset project grid scroll to start on load
-window.addEventListener('load', () => {
+// Reset project grid scroll to start on load and on resize
+function resetGridScroll() {
     const squareGrid = document.querySelector('.square-grid');
-    if (squareGrid) {
-        setTimeout(() => {
-            squareGrid.scrollLeft = 0;
-        }, 100);
+    if (squareGrid && window.innerWidth <= 600) {
+        squareGrid.scrollLeft = 0;
     }
+}
+
+window.addEventListener('load', () => {
+    setTimeout(resetGridScroll, 100);
 });
+
+window.addEventListener('resize', resetGridScroll);
 
 // Hamburger menu toggle
 window.addEventListener('DOMContentLoaded', () => {

@@ -465,28 +465,20 @@ body {
         display: flex;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
-        gap: 15px;
-        padding: 0;
+        gap: 10px;
+        padding: 0 10px;
         margin: 0;
         width: 100%;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
+        scroll-padding-left: 0;
     }
 
     .square-item {
-        flex: 0 0 calc(100vw - 40px);
+        flex: 0 0 calc(50vw - 10px);
         scroll-snap-align: start;
         scroll-snap-stop: always;
         aspect-ratio: 1 / 1.2;
-        margin: 0 20px;
-    }
-    
-    .square-item:first-child {
-        margin-left: 20px;
-    }
-
-    .square-item:last-child {
-        margin-right: 20px;
     }
 
     .square-grid::-webkit-scrollbar {
@@ -501,7 +493,15 @@ body {
     }
 
     .stair-block p {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+    }
+
+    .sticky-note p {
+        font-size: 1.1rem;
+    }
+
+    .note-tag {
+        font-size: 0.65rem;
     }
 
     .full-section {
@@ -518,8 +518,8 @@ body {
     }
 
     .section-header {
-        font-size: 0.9rem;
-        letter-spacing: 1.5px;
+        font-size: 0.8rem;
+        letter-spacing: 1.2px;
         margin-bottom: 1.5rem;
     }
 
