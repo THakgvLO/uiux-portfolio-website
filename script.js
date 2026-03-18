@@ -47,12 +47,19 @@ function toggleProjectView() {
 function resetGridScroll() {
     const squareGrid = document.querySelector('.square-grid');
     if (squareGrid && window.innerWidth <= 600) {
+        // Force scroll to position 0
         squareGrid.scrollLeft = 0;
+        // Also try with requestAnimationFrame for better timing
+        requestAnimationFrame(() => {
+            squareGrid.scrollLeft = 0;
+        });
     }
 }
 
 window.addEventListener('load', () => {
-    setTimeout(resetGridScroll, 100);
+    resetGridScroll();
+    setTimeout(resetGridScroll, 200);
+    setTimeout(resetGridScroll, 500);
 });
 
 window.addEventListener('resize', resetGridScroll);
