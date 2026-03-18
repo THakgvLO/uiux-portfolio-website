@@ -463,23 +463,33 @@ body {
 @media (max-width: 600px) {
     .square-grid {
         display: flex; /* Switch from Grid to Flex for swiping */
-        overflow-x: auto; /* Enables horizontal swipe */
+        overflow-x: scroll; /* Enables horizontal swipe */
         scroll-snap-type: x mandatory; /* Makes cards 'snap' into place */
-        gap: 15px;
-        padding-bottom: 20px;
+        gap: 20px;
+        padding: 20px 20px 40px 20px;
         -webkit-overflow-scrolling: touch; /* Smooth swiping on iOS */
-        scroll-padding-left: 20px;
+        scroll-behavior: smooth;
+        margin: 0 -20px;
+        width: calc(100% + 40px);
     }
 
     .square-item {
-        flex: 0 0 80%; /* Cards take up 80% of screen width */
+        flex: 0 0 calc(100vw - 80px); /* Fill width minus padding */
         scroll-snap-align: start;
+        scroll-snap-stop: always;
         aspect-ratio: 1 / 1.2; /* Slightly taller for mobile */
     }
     
-    /* Hide scrollbar for a cleaner 'app' look */
+    /* Scrollbar styling for mobile */
     .square-grid::-webkit-scrollbar {
-        display: none;
+        height: 6px;
+        background: rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+
+    .square-grid::-webkit-scrollbar-thumb {
+        background: rgba(146, 27, 45, 0.6);
+        border-radius: 10px;
     }
 
     .stair-block p {
@@ -565,6 +575,7 @@ body {
 
     .hamburger {
         display: flex;
+        z-index: 1001;
     }
 
     .nav-links {
@@ -572,16 +583,24 @@ body {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: rgba(160, 2, 55, 0.9);
+        background-color: rgba(146, 27, 45, 0.95);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        padding: 20px 0;
-        z-index: 999;
+        transition: left 0.4s ease;
+        padding: 40px 20px;
+        z-index: 1000;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
     }
 
     .nav-links.active {
         left: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        font-size: 1.2rem;
+        color: #ffffff;
     }
 
     .nav-links li {
