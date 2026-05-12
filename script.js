@@ -1,88 +1,72 @@
-function adjustGrid() {
-    const grid = document.getElementById('hexGrid');
-    const items = document.querySelectorAll('.hex-item');
-    const count = items.length;
+// Tsholi Podile portfolio — interactions
 
-    // Logic: If we have many items, reduce the width to prevent overflow
-    if (count > 6) {
-        items.forEach(item => {
-            item.style.width = '180px';
-            item.style.margin = '5px';
-        });
-    }
+// Live clock in the masthead
+function tickClock() {
+  const el = document.getElementById('localTime');
+  if (!el) return;
+  const now = new Date();
+  const opts = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Africa/Johannesburg' };
+  el.textContent = new Intl.DateTimeFormat('en-GB', opts).format(now) + ' SAST';
 }
 
-window.addEventListener('load', adjustGrid);
-window.addEventListener('resize', adjustGrid);
-
-/**
- * toggleProjectView: 
- * Switches between individual screen embeds and the full prototype.
- * Updates the button text to show the "next available" state.
- */
-function toggleProjectView() {
-    const btn = document.getElementById('viewToggleButton');
-    const staticView = document.getElementById('staticScreens');
-    const protoView = document.getElementById('livePrototype');
-
-    // Check if prototype is currently hidden
-    if (protoView.style.display === 'none') {
-        // ACTION: SHOW PROTOTYPE
-        staticView.style.display = 'none';
-        protoView.style.display = 'block';
-        
-        // Update button text to the alternative option
-        btn.innerText = "Switch to Individual Screens";
-    } else {
-        // ACTION: SHOW INDIVIDUAL SCREENS
-        staticView.style.display = 'grid'; // Returns to grid layout
-        protoView.style.display = 'none';
-        
-        // Update button text to the alternative option
-        btn.innerText = "Switch to Full Prototype";
-    }
+// Hamburger
+function initNav() {
+  const burger = document.querySelector('.hamburger');
+  const links = document.querySelector('.nav-links');
+  if (!burger || !links) return;
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('is-open');
+    links.classList.toggle('is-open');
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('is-open');
+      links.classList.remove('is-open');
+    });
+  });
 }
 
-// Reset project grid scroll to start on load and on resize
-function resetGridScroll() {
-    const squareGrid = document.querySelector('.square-grid');
-    if (squareGrid && window.innerWidth <= 600) {
-        // Force scroll to position 0 without smooth behavior
-        squareGrid.scrollTo({ left: 0, behavior: 'auto' });
-        // Also try with requestAnimationFrame for better timing
-        requestAnimationFrame(() => {
-            squareGrid.scrollTo({ left: 0, behavior: 'auto' });
-        });
-    }
+// Reveal on scroll
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || els.length === 0) {
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  els.forEach(el => io.observe(el));
 }
 
-window.addEventListener('load', () => {
-    resetGridScroll();
-    setTimeout(resetGridScroll, 100);
-    setTimeout(resetGridScroll, 300);
-    setTimeout(resetGridScroll, 500);
-    setTimeout(resetGridScroll, 1000);
-});
+// Case study toggle (grid <-> full prototype)
+function setView(mode) {
+  const staticView = document.getElementById('staticScreens');
+  const protoView  = document.getElementById('livePrototype');
+  const buttons    = document.querySelectorAll('[data-view]');
+  if (!staticView || !protoView) return;
+  if (mode === 'proto') {
+    staticView.classList.add('hidden');
+    protoView.classList.add('active');
+  } else {
+    staticView.classList.remove('hidden');
+    protoView.classList.remove('active');
+  }
+  buttons.forEach(b => b.classList.toggle('active', b.dataset.view === mode));
+}
 
-window.addEventListener('resize', resetGridScroll);
+document.addEventListener('DOMContentLoaded', () => {
+  initNav();
+  initReveal();
+  tickClock();
+  setInterval(tickClock, 30 * 1000);
 
-window.addEventListener('DOMContentLoaded', () => {
-    resetGridScroll();
-    // Hamburger menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-links li a');
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    }
+  document.querySelectorAll('[data-view]').forEach(b => {
+    b.addEventListener('click', () => setView(b.dataset.view));
+  });
 });

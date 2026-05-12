@@ -1,199 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tsholi Podile | UI/UX Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tsholi Podile — UI/UX Designer</title>
+  <meta name="description" content="Tsholi Podile is a UI/UX designer crafting clear, considered digital experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">TSHOLI PODILE</div>
-        <ul class="nav-links">
-            <li><a href="#hero">Intro</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Work</a></li>
-            <li><a href="#contact">Connect</a></li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+  <header class="nav" role="banner">
+    <a href="#top" class="brand" aria-label="Tsholi Podile, home">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Tsholi Podile</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
-    <section id="hero" class="full-section">
-        <div class="hero-layout">
-            <div class="intro-row">
-                <div class="intro-block intro-block--title">
-                    <h1 class="typewriter">
-                        <span class="word word--large">Creative</span>
-                        <span class="word word--medium">UI/UX</span>
-                        <span class="word word--small">Designer</span>
-                    </h1>
-                </div>
+    <div class="nav-status" aria-live="polite">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>Open to new work · 2026</span>
+    </div>
 
-                <div class="intro-block intro-block--lead">
-                    <p class="staggered-text">
-                        <span style="--i:1">Crafting</span>
-                        <span class="highlight" style="--i:2">intentional</span>
-                        <span style="--i:3">digital</span>
-                        <span class="highlight" style="--i:4">experiences</span>
-                        <span style="--i:5">that</span>
-                        <span class="highlight" style="--i:6">balance</span>
-                        <span style="--i:7">user</span>
-                        <span style="--i:8">needs</span>
-                        <span style="--i:9">with</span>
-                        <span style="--i:10">business</span>
-                        <span style="--i:11">goals.</span>
-                    </p>
-                </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-                <div class="intro-block intro-block--detail">
-                    <p class="staggered-text delayed">
-                        <span style="--i:1">I</span>
-                        <span class="highlight" style="--i:2">bridge</span>
-                        <span style="--i:3">the</span>
-                        <span style="--i:4">gap</span>
-                        <span style="--i:5">between</span>
-                        <span class="highlight" style="--i:6">complex</span>
-                        <span style="--i:7">user</span>
-                        <span style="--i:8">problems</span>
-                        <span style="--i:9">and</span>
-                        <span class="highlight" style="--i:10">elegant</span>
-                        <span style="--i:11">digital</span>
-                        <span class="highlight" style="--i:12">solutions.</span>
-                        <span style="--i:13">By</span>
-                        <span class="highlight" style="--i:14">combining</span>
-                        <span style="--i:15">deep</span>
-                        <span class="highlight" style="--i:16">psychological</span>
-                        <span class="highlight" style="--i:17">insights</span>
-                        <span style="--i:18">with</span>
-                        <span style="--i:19">high-fidelity</span>
-                        <span class="highlight" style="--i:20">prototyping,</span>
-                        <span style="--i:21">I</span>
-                        <span style="--i:22">create</span>
-                        <span style="--i:23">products</span>
-                        <span style="--i:24">that</span>
-                        <span style="--i:25">are</span>
-                        <span style="--i:26">as</span>
-                        <span class="highlight" style="--i:27">functional</span>
-                        <span style="--i:28">as</span>
-                        <span style="--i:29">they</span>
-                        <span style="--i:30">are</span>
-                        <span style="--i:31">visually</span>
-                        <span class="highlight" style="--i:32">compelling.</span>
-                        <span style="--i:33">Currently</span>
-                        <span class="highlight" style="--i:34">focused</span>
-                        <span style="--i:35">on</span>
-                        <span class="highlight" style="--i:36">building</span>
-                        <span class="highlight" style="--i:37">seamless</span>
-                        <span class="highlight" style="--i:38">mobile</span>
-                        <span style="--i:39">experiences</span>
-                        <span style="--i:40">for</span>
-                        <span style="--i:41">the</span>
-                        <span class="highlight" style="--i:42">modern</span>
-                        <span class="highlight" style="--i:43">consumer.</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <main id="top">
 
-    <section id="about" class="full-section">
-        <h2 class="section-header">Design Philosophy</h2>
-        <div class="stairs-container">
-            <div class="stair-block step-1">
-                <p>Design is more than just aesthetics; it is a communication tool.</p>
-            </div>
-            
-            <div class="stair-block step-2">
-                <p>My process is rooted in <strong>User-Centered Design (UCD)</strong>.</p>
-            </div>
-            
-            <div class="stair-block step-3">
-                <p>Involving iterative testing, accessibility audits, and collaboration.</p>
-            </div>
-            
-            <div class="stair-block step-4">
-                <p>Every interaction should be intentional, and every pixel should solve a problem.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about-process" class="full-section">
-        <h2 class="section-header">Design Thinking</h2>
-        
-        <div class="figma-canvas">
-            <div class="note-carousel" aria-label="Design thinking notes carousel">
-                <div class="sticky-note yellow">
-                    <span class="note-tag">Empathize</span>
-                    <p>User interviews revealed a deep frustration with calorie counting apps. They want speed, not data entry.</p>
-                </div>
-
-                <div class="sticky-note green">
-                    <span class="note-tag">Define</span>
-                    <p>Problem: Busy pros need a way to find recipes based on what they *already* have in the fridge.</p>
-                </div>
-
-                <div class="sticky-note blue">
-                    <span class="note-tag">Ideate</span>
-                    <p>What if the app scanned receipts? Or used AI image recognition for pantry items?</p>
-                </div>
-
-                <div class="sticky-note purple">
-                    <span class="note-tag">Prototype</span>
-                    <p>Building high-fidelity flows in Figma to test the "One-Tap Recipe" hypothesis.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!--<section id="about" class="full-section">
-        <h2 class="section-header">About My Process</h2>
-        <div class="about-container">
-            <p>I specialize in transforming complex problems into intuitive designs. With a background in user research and prototyping, I ensure every pixel serves a purpose.</p>
-        </div>
-    </section>-->
-
-    <section id="projects" class="full-section">
-        <h2 class="section-header">Selected Work</h2>
-        <div class="square-grid">
-            <a href="mealwise.html" class="square-item">
-                <div class="tile-image">
-                    <img src="assets/images/MealWise_Logo.png" alt="MealWise Logo">
-                </div>
-                <div class="tile-info">
-                    <h3>MealWise</h3>
-                    <p>Nutrition & Wellness App</p>
-                </div>
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-left reveal">
+          <span class="eyebrow">Portfolio — 2026 / Vol. 01</span>
+          <h1>Designing clear, <em>considered</em> digital experiences.</h1>
+          <p class="hero-lead">
+            I'm Tsholi — a UI/UX designer working across mobile and web.
+            I help teams turn complicated problems into interfaces that
+            feel calm, capable, and unmistakably theirs.
+          </p>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">
+              See selected work
+              <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <div class="square-item placeholder"><h3>Project 2</h3></div>
-            <div class="square-item placeholder"><h3>Project 3</h3></div>
-            <div class="square-item placeholder"><h3>Project 4</h3></div>
-            <div class="square-item placeholder"><h3>Project 5</h3></div>
-            <div class="square-item placeholder"><h3>Project 6</h3></div>
+            <a href="#contact" class="btn btn-ghost">
+              Get in touch
+            </a>
+          </div>
         </div>
+
+        <aside class="hero-right reveal" aria-label="At a glance">
+          <dl class="hero-meta">
+            <div>
+              <dt>Based in</dt>
+              <dd>Cape Town, ZA</dd>
+            </div>
+            <div>
+              <dt>Local time</dt>
+              <dd><span id="localTime">—</span></dd>
+            </div>
+            <div>
+              <dt>Disciplines</dt>
+              <dd>UX · UI · Research</dd>
+            </div>
+            <div>
+              <dt>Available</dt>
+              <dd>Q3 onwards</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
     </section>
 
-    <section id="contact" class="full-section">
-        <h2 class="section-header">Let's Talk</h2>
-        <div class="social-container">
-            <div class="social-links">
-                <a href="#" class="social-icon"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a>
-                <a href="#" class="social-icon"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
-                <a href="#" class="social-icon"><img src="assets/icons/figma.svg" alt="Figma"></a>
-                <a href="#" class="social-icon"><img src="assets/icons/tiktok.svg" alt="TikTok"></a>
-                <a href="mailto:hello@tsholi.com" class="social-icon"><img src="assets/icons/gmail.svg" alt="Email"></a>
-            </div>
+    <!-- ABOUT / PHILOSOPHY -->
+    <section id="about" class="section">
+      <div class="container">
+        <span class="eyebrow">01 — Philosophy</span>
+        <h2 class="section-title">Design is a <em>conversation</em>, not a coat of paint.</h2>
+
+        <div class="philosophy">
+          <blockquote class="pullquote reveal">
+            “Every interaction should be intentional. Every pixel should
+            <em>solve a problem</em> — or quietly stay out of the way.”
+          </blockquote>
+
+          <div class="philosophy-body reveal">
+            <p>
+              My process is rooted in user-centered design — iterative testing,
+              accessibility audits, and close collaboration with engineering and
+              product. I treat research as a first-class artifact, not a checklist.
+            </p>
+            <p>
+              The best work I've shipped started with the smallest, most honest
+              question: <em>what is actually getting in the way?</em> Everything
+              else follows from there.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section">
+      <div class="container">
+        <span class="eyebrow">02 — Process</span>
+        <h2 class="section-title">How I work, in <em>four movements</em>.</h2>
+
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <div class="num">01 / Empathize</div>
+            <h3>Listen first</h3>
+            <p>Interviews, observation, and shadowing — long enough to hear what people
+              don't quite know how to say.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="num">02 / Define</div>
+            <h3>Sharpen the problem</h3>
+            <p>Synthesize messy notes into a single, defensible point of view the
+              team can actually design against.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="num">03 / Ideate</div>
+            <h3>Diverge widely</h3>
+            <p>Sketch broadly, then prune ruthlessly. The strongest idea usually
+              earns its place against three weaker ones.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="num">04 / Prototype</div>
+            <h3>Make it real</h3>
+            <p>High-fidelity flows you can tap through, hand to a user, and
+              ship — not slides about what we might build.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="section">
+      <div class="container">
+        <div class="work-head">
+          <div>
+            <span class="eyebrow">03 — Selected Work</span>
+            <h2 class="section-title">A small <em>well-chosen</em> set.</h2>
+          </div>
+          <span class="count">01 of 02 · 2025 — 2026</span>
+        </div>
+
+        <div class="work-list">
+
+          <a href="mealwise.html" class="work-card reveal" aria-label="MealWise case study">
+            <span class="index">N°&nbsp;01</span>
+            <div class="thumb">
+              <img src="assets/images/MealWise_Logo.png" alt="MealWise logo">
+            </div>
+            <div class="body">
+              <div class="meta">
+                <span>Mobile App</span>
+                <span>UX Case Study</span>
+                <span>2025</span>
+              </div>
+              <h3>MealWise</h3>
+              <p>
+                A personalised nutrition companion designed to remove the
+                daily "what's for dinner" tax for busy professionals — through
+                conversational input, dietary intelligence, and a calm,
+                opinionated home screen.
+              </p>
+              <span class="view">
+                Read case study
+                <span class="arrow" aria-hidden="true">→</span>
+              </span>
+            </div>
+          </a>
+
+          <article class="work-card upcoming reveal" aria-label="Upcoming project">
+            <span class="index">N°&nbsp;02</span>
+            <div class="thumb">
+              <span class="placeholder">In progress</span>
+            </div>
+            <div class="body">
+              <div class="meta">
+                <span>Web Platform</span>
+                <span>Design System</span>
+                <span>2026</span>
+              </div>
+              <h3>Next study, soon.</h3>
+              <p>
+                A long-form case on building an opinionated design system from
+                scratch — token architecture, component contracts, and the
+                governance rituals that keep it alive.
+              </p>
+              <span class="view">
+                Available later this year
+              </span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal">
+            <span class="eyebrow">04 — Contact</span>
+            <h2>Have a problem worth <em>solving</em>?</h2>
+            <a href="mailto:hello@tsholi.com" class="contact-email">
+              hello@tsholi.com
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="contact-side reveal">
+            <div class="label">Find me elsewhere</div>
+            <div class="socials">
+              <a href="#" aria-label="LinkedIn"><img src="assets/icons/linkedin.svg" alt=""></a>
+              <a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt=""></a>
+              <a href="#" aria-label="Figma"><img src="assets/icons/figma.svg" alt=""></a>
+              <a href="#" aria-label="TikTok"><img src="assets/icons/tiktok.svg" alt=""></a>
+              <a href="mailto:hello@tsholi.com" aria-label="Email"><img src="assets/icons/gmail.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Tsholi Podile · All rights reserved</span>
+    <a href="#top" class="back-to-top">Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
 
 </body>
 </html>
