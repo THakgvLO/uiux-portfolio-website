@@ -17,7 +17,7 @@ class LinkLoader {
     // 1. Open your Google Sheet
     // 2. Click Share → Publish to web
     // 3. Select "Entire document" and "Comma-separated values (.csv)"
-    // 4. Copy the published link and paste it below
+    // 4. Copy the published link and paste it below.
     this.sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR2HfgX-WgktfaEDzoHkJr50pctpUYb0JyL92Mi5TQ6RLnM-kEISYiD4NKSzU1OYi-GVR8ZI-S1wiQX/pub?output=csv"; // TODO: Add your sheet URL here
     
     this.cacheKey = "figmaLinksCache";
