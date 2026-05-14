@@ -790,6 +790,31 @@ img { display: block; max-width: 100%; }
   background: var(--paper);
 }
 
+/* Link fetch error notification */
+.link-error-notification {
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius);
+  background: oklch(0.94 0.08 25 / 0.12);
+  border: 1px solid oklch(0.55 0.14 35 / 0.4);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-ink);
+  display: flex; align-items: center; gap: 0.6rem;
+  animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ============================ RESPONSIVE ============================ */
 @media (min-width: 900px) {
   .hero-grid {
