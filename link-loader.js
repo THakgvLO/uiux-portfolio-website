@@ -87,18 +87,41 @@ class LinkLoader {
         continue; // Skip incomplete rows
       }
 
-      if (!links[project]) {
-        links[project] = {};
+      const projectKey = project.trim().toLowerCase();
+      const linkKey = linkId.trim().toLowerCase();
+      const normalizedUrl = this.normalizeFigmaUrl(figmaUrl);
+
+      if (!links[projectKey]) {
+        links[projectKey] = {};
       }
 
-      links[project][linkId] = {
-        name: linkName || linkId,
-        url: figmaUrl,
-        type: type || "screen"
+      links[projectKey][linkKey] = {
+        name: linkName || linkKey,
+        url: normalizedUrl,
+        type: (type || "screen").trim().toLowerCase()
       };
     }
 
     return links;
+  }
+
+  normalizeFigmaUrl(url) {
+    const value = url.trim();
+    if (!value) {
+      return value;
+    }
+
+    // If it's already an embed URL, use it directly.
+    if (value.includes("/embed?embed_host=share&url=")) {
+      return value;
+    }
+
+    // Convert the normal Figma design/proto URL into an embed URL.
+    if (value.startsWith("https://www.figma.com/")) {
+      return `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(value)}`;
+    }
+
+    return value;
   }
 
   /**
@@ -142,9 +165,11 @@ class LinkLoader {
     iframes.forEach((iframe) => {
       const project = iframe.getAttribute("data-project");
       const linkId = iframe.getAttribute("data-link-id");
+      const projectKey = project ? project.trim().toLowerCase() : "";
+      const linkKey = linkId ? linkId.trim().toLowerCase() : "";
 
-      if (links[project] && links[project][linkId]) {
-        const newUrl = links[project][linkId].url;
+      if (links[projectKey] && links[projectKey][linkKey]) {
+        const newUrl = links[projectKey][linkKey].url;
         iframe.src = newUrl;
       }
     });
