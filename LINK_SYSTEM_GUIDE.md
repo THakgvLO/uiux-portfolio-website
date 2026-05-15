@@ -29,11 +29,12 @@ Create these column headers in Row 1:
 
 | Project | Link ID | Link Name | Figma URL | Type |
 |---------|---------|-----------|-----------|------|
-| mealwise | welcome | Welcome | `https://www.figma.com/embed?embed_host=share&url=...` | screen |
-| mealwise | home | Home | `https://www.figma.com/embed?embed_host=share&url=...` | screen |
-| mealwise | recipe-detail | Recipe Detail | `https://www.figma.com/embed?embed_host=share&url=...` | screen |
-| mealwise | profile | Profile | `https://www.figma.com/embed?embed_host=share&url=...` | screen |
-| mealwise | full-prototype | Full Prototype | `https://www.figma.com/embed?embed_host=share&url=...` | prototype |
+| mealwise | welcome | Welcome | `https://www.figma.com/design/4PselXuIjc6ZFeIxGfNFRE/Team-MealWise?node-id=136-136&t=LrBKt4qSZIrKrhX2-4` | screen |
+| mealwise | home | Home | `https://www.figma.com/design/4PselXuIjc6ZFeIxGfNFRE/Team-MealWise?node-id=528-453&t=LrBKt4qSZIrKrhX2-4` | screen |
+| mealwise | recipe-detail | Recipe Detail | `https://www.figma.com/design/4PselXuIjc6ZFeIxGfNFRE/Team-MealWise?node-id=209-475&t=LrBKt4qSZIrKrhX2-4` | screen |
+| mealwise | profile | Profile | `https://www.figma.com/design/4PselXuIjc6ZFeIxGfNFRE/Team-MealWise?node-id=207-179&t=LrBKt4qSZIrKrhX2-4` | screen |
+| mealwise | full-prototype | Full Prototype | `https://www.figma.com/proto/4PselXuIjc6ZFeIxGfNFRE/Team-MealWise?node-id=0-1&t=LrBKt4qSZIrKrhX2-1` | prototype |
+| portfolio | slide-deck | Portfolio Slides | `https://www.figma.com/deck/pPRuRmG66E41s5Xi19b7Z4/Design-Portfolio?node-id=1-445&t=LB3F7eO8eP0B32o0-1` | deck |
 
 ### 1.3 Publish the sheet
 1. Click "File" → "Share"
@@ -178,6 +179,33 @@ Client simply:
 2. Updates a Figma URL in the appropriate row
 3. Refreshes the website
 4. New link loads automatically (localStorage expires in 24h, or manually clear cache)
+
+---
+
+## Debugging: Check if Links Are Loading from Sheet
+
+The system now includes debug logging. To see what's happening:
+
+1. Open any project page (e.g., `projects/mealwise.html`)
+2. Open browser DevTools (F12) → Console tab
+3. Look for messages starting with "Link Loader:"
+
+**What you'll see:**
+- `Link Loader: Initializing...` - System started
+- `Link Loader: Google Sheet URL not configured. Using hardcoded links.` - Sheet URL missing
+- `Link Loader: Fetched links from sheet: {...}` - Sheet data loaded successfully
+- `Link Loader: Found X iframes to update` - How many iframes found
+- `Link Loader: Checking iframe - project: "mealwise", linkId: "welcome"` - Each iframe check
+- `Link Loader: Updating iframe from "old-url" to "new-url"` - Link updated from sheet
+- `Link Loader: No matching link found... Using hardcoded fallback.` - Link not found in sheet
+
+**If you see error notifications:**
+- The sheet fetch failed (network issue, wrong URL, etc.)
+- Page uses hardcoded fallback links
+
+**If no error but links don't update:**
+- Check that `data-project` and `data-link-id` attributes match your sheet exactly (case-insensitive)
+- Verify sheet data is published and accessible
 
 ---
 
