@@ -29,21 +29,19 @@ class LinkLoader {
    * Fetch links from Google Sheet and update page
    */
   async init() {
-    console.log("Link Loader: Initializing...");
-    
     // Only fetch if URL is configured
     if (!this.sheetUrl) {
-      console.log("Link Loader: Google Sheet URL not configured. Using hardcoded links.");
+      console.log("Link Loader: Using hardcoded links (no sheet URL configured)");
       return;
     }
 
     try {
       const links = await this.fetchLinks();
-      console.log("Link Loader: Fetched links from sheet:", links);
+      console.log("Link Loader: Loaded links from Google Sheet");
       this.updatePageLinks(links);
-      console.log("Link Loader: Updated page links");
     } catch (error) {
       console.error("Link Loader: Error fetching links -", error);
+      console.log("Link Loader: Using hardcoded fallback links");
       this.showErrorNotification();
       // Page will use hardcoded fallback links
     }
@@ -165,7 +163,6 @@ class LinkLoader {
   updatePageLinks(links) {
     // Get all iframes with data-project attribute
     const iframes = document.querySelectorAll("iframe[data-project][data-link-id]");
-    console.log("Link Loader: Found", iframes.length, "iframes to update");
 
     iframes.forEach((iframe) => {
       const project = iframe.getAttribute("data-project");
@@ -173,15 +170,12 @@ class LinkLoader {
       const projectKey = project ? project.trim().toLowerCase() : "";
       const linkKey = linkId ? linkId.trim().toLowerCase() : "";
 
-      console.log(`Link Loader: Checking iframe - project: "${projectKey}", linkId: "${linkKey}"`);
-
       if (links[projectKey] && links[projectKey][linkKey]) {
         const newUrl = links[projectKey][linkKey].url;
-        const oldUrl = iframe.src;
-        console.log(`Link Loader: Updating iframe from "${oldUrl}" to "${newUrl}"`);
+        console.log(`Link Loader: Updated ${projectKey}/${linkKey} from sheet`);
         iframe.src = newUrl;
       } else {
-        console.log(`Link Loader: No matching link found for project "${projectKey}", linkId "${linkKey}". Using hardcoded fallback.`);
+        console.log(`Link Loader: Using hardcoded fallback for ${projectKey}/${linkKey}`);
       }
     });
   }
